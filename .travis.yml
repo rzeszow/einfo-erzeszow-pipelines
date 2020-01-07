@@ -16,7 +16,7 @@ jdk:
 matrix:
   allow_failures:
     - jdk: oraclejdk9
-    - jdk: openjdk8
+    - jdk: openjdk11
     - jdk: openjdk13
 
 install:
