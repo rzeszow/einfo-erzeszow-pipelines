@@ -3,7 +3,7 @@
 ```bash
 clear;    
 mvn compile exec:java \
-    -Dexec.mainClass=it.kruczek.ztm.Processing.ImportDataPipeline \
+    -Dexec.mainClass=it.kruczek.ztm.Processing.Pipelines.ImportLocalFilesWatcher \
     -Dexec.args="--inputDirectory=${PWD}/data/**.xml --elasticSearchUrl=http://localhost:9200 --elasticSearchUsername=elastic --elasticSearchPassword=changeme --elasticSearchIndex=buses" \
     -Pdirect-runner
 ```

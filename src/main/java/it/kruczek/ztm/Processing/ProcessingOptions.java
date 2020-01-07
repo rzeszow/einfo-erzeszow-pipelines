@@ -29,17 +29,4 @@ public interface ProcessingOptions extends PipelineOptions {
     @Validation.Required
     String getElasticSearchIndex();
     void setElasticSearchIndex(String value);
-
-
-//    @TODO ELASTIC SEARCH params needed
-//
-//    @Description("MongoDB URL")
-//    @Validation.Required
-//    String getOutputMongoDbUrl();
-//    void setOutputMongoDbUrl(String value);
-//
-//    @Description("MongoDB collection")
-//    @Validation.Required
-//    String getOutputMongoDbCollection();
-//    void setOutputMongoDbCollection(String value);
 }

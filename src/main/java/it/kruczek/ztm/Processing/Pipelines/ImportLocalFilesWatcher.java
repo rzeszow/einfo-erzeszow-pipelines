@@ -1,9 +1,12 @@
-package it.kruczek.ztm.Processing;
+package it.kruczek.ztm.Processing.Pipelines;
 
+import it.kruczek.ztm.Processing.FilesMatchingConfigurationFactory;
+import it.kruczek.ztm.Processing.ParseXmlFiles;
+import it.kruczek.ztm.Processing.ProcessingOptions;
+import it.kruczek.ztm.Processing.TransformMatchesToFiles;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.FileIO;
 import org.apache.beam.sdk.io.elasticsearch.ElasticsearchIO;
-import org.apache.beam.sdk.io.elasticsearch.ElasticsearchIO.ConnectionConfiguration;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.ParDo;
@@ -12,11 +15,11 @@ import org.apache.beam.sdk.values.PCollection;
 
 import java.io.File;
 
-public class ImportDataPipeline {
+public class ImportLocalFilesWatcher {
     public static void main(String[] args) {
         ProcessingOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(ProcessingOptions.class);
         Pipeline pipeline = Pipeline.create(options);
-        ConnectionConfiguration connectionConfiguration = ConnectionConfiguration.create(
+        ElasticsearchIO.ConnectionConfiguration connectionConfiguration = ElasticsearchIO.ConnectionConfiguration.create(
                 new String[]{options.getElasticSearchUrl()},
                 options.getElasticSearchIndex(),
                 "positions"
@@ -27,7 +30,7 @@ public class ImportDataPipeline {
                 .withPassword(options.getElasticSearchPassword());
 
         PCollection<KV<String, String>> foundFiles = pipeline
-                .apply(FilesMatchingConfigurationFactory.create(options.getInputDirectory()))
+                .apply(FilesMatchingConfigurationFactory.createWatcher(options.getInputDirectory()))
                 .apply(FileIO.readMatches())
                 .apply(TransformMatchesToFiles.create());
 
