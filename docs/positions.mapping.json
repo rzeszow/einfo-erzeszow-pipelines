@@ -1,0 +1,156 @@
+{
+  "properties": {
+    "@timestamp": {
+      "type": "date",
+      "format": "strict_date_optional_time||epoch_millis"
+    },
+    "Attributes": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "BusNo": {
+      "type": "long"
+    },
+    "BusStops": {
+      "type": "long"
+    },
+    "Direction": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "DistanceToNextBusStop": {
+      "type": "long"
+    },
+    "LineNo": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "NextDirection": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "NextLineNo": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "NextRoute": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "NextServiceNo": {
+      "type": "long"
+    },
+    "NextTimeDeparture": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "GeoPointPosition": {
+      "type": "geo_point"
+    },
+    "Position": {
+      "type": "geo_shape"
+    },
+    "PrevPosition": {
+      "type": "geo_shape"
+    },
+    "RadioNo": {
+      "type": "long"
+    },
+    "RemainingToNextBusStop": {
+      "type": "long"
+    },
+    "Route": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "SecondsToStart": {
+      "type": "long"
+    },
+    "ServiceNo": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "State": {
+      "type": "long"
+    },
+    "TimeDeparture": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "TimestampAt": {
+      "type": "date",
+      "format": "strict_date_optional_time||epoch_second"
+    },
+    "TypeOfVehicle": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "VariationAsFormattedText": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "VariationInSeconds": {
+      "type": "long"
+    }
+  }
+}

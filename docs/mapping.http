@@ -1,0 +1,23 @@
+DELETE http://elastic:changeme@localhost:9200/buses
+
+###
+
+PUT http://elastic:changeme@localhost:9200/buses
+
+{
+    "settings" : {
+         "index" : {
+             "number_of_shards" : 3,
+             "number_of_replicas" : 2
+         }
+    }
+ }
+
+###
+
+PUT http://elastic:changeme@localhost:9200/buses/_mapping/positions
+Content-Type: application/json
+
+< ./positions.mapping.json
+
+###
