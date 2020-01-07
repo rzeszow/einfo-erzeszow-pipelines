@@ -1,0 +1,33 @@
+sudo: false
+dist: trusty
+language: java
+
+services:
+  - elasticsearch
+
+jdk:
+  - oraclejdk8
+  - oraclejdk9
+
+  - openjdk8
+  - openjdk11
+  - openjdk13
+
+matrix:
+  allow_failures:
+    - jdk: oraclejdk9
+    - jdk: openjdk8
+    - jdk: openjdk13
+
+install:
+  - mvn clean install
+
+before_script:
+  - sleep 10
+
+script:
+  - |
+    mvn compile exec:java -e \
+      -Dexec.mainClass=it.kruczek.ztm.Processing.ImportDataPipeline \
+      -Dexec.args="--inputDirectory=${PWD}/data/**.xml --elasticSearchUrl=http://localhost:9200 --elasticSearchUsername=elastic --elasticSearchPassword=changeme --elasticSearchIndex=buses" \
+      -P direct-runner
