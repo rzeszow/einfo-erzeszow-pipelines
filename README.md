@@ -12,6 +12,10 @@ mvn compile exec:java \
     -Pdirect-runner
 ```
 
+## Data
+
+All gathered data can be found [here](https://michal.kruczek.it/data/)
+
 ## Troubleshooting
 
 > max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
